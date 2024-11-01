@@ -5,12 +5,13 @@ from .models import Student
 
 
 def students_list(request):
+    """
+    Функция передает в браузер на страницу students_list.html словарь context со студентами
+    и прикрепленными к ним преподователями 
+    """
     template = 'school/students_list.html'
     obj_list = Student.objects.all().prefetch_related('teachers')
     context = {'object_list':obj_list}
-
-    # используйте этот параметр для упорядочивания результатов
-    # https://docs.djangoproject.com/en/2.2/ref/models/querysets/#django.db.models.query.QuerySet.order_by
     ordering = 'group'
 
     return render(request, template, context)

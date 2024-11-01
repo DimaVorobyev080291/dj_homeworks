@@ -15,9 +15,15 @@
               <a href="#">{{ article.title }}</a>
             </h4>
             <p class="card-text">{{ article.text }}</p>
-            {% for scope in article.scopes.all %}
-              <span class="badge {% if scope.is_main %}badge-primary{% else %}badge-secondary{% endif %}">{{ scope.tag.name }}</span>
+            {% for thema1 in article.themas.all %}
+             <span class="badge badge-primary">{% if thema1.is_main %}{{ thema1.thema }}
+            {% endif %}</span>
             {% endfor %}
+            {% for thema2 in article.themas.all|dictsort:"thema.thema" %}
+             <span class="badge badge-secondary">{% if not thema2.is_main %}{{ thema2.thema }}
+             {% endif %}</span>
+            {% endfor %}
+              
           </div>
         </div>
       </div>

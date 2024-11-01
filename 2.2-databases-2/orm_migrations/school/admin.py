@@ -5,6 +5,9 @@ from .models import Student, Teacher
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
+    """
+    Админка модели Student
+    """
     list_display = ['name', 'group']
 
 
