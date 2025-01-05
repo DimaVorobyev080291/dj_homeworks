@@ -19,6 +19,12 @@ Content-Type: application/json
 
 ###
 
+# получение 2 страници 
+GET {{baseUrl}}/products/?page=2
+Content-Type: application/json
+
+###
+
 # обновление продукта
 PATCH {{baseUrl}}/products/8/
 Content-Type: application/json
